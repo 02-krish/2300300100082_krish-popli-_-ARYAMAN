@@ -4,7 +4,7 @@ public:
         int n = arr.size();
         int sum = 0;
 
-        // first k elements ka sum
+        
         for(int i = 0; i < k; i++) {
             sum += arr[i];
         }
