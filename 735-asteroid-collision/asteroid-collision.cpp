@@ -1,34 +1,43 @@
 class Solution {
 public:
-    vector<int> asteroidCollision(vector<int>& asteroids) {
-        std::stack<int> stack;
+   vector<int> asteroidCollision(vector<int>& arr) {
 
-        for (int a : asteroids) {
-            if (a > 0) {
-                stack.push(a);
-            } else {
-                while (!stack.empty() && stack.top() > 0 && stack.top() < -a) {
-                    stack.pop();
-                }
+    vector<int> st;
 
-                if (stack.empty() || stack.top() < 0) {
-                    stack.push(a);
-                }
+    for(int i = 0; i < arr.size(); i++) {
 
-                if (!stack.empty() && stack.top() == -a) {
-                    stack.pop();
-                }
+        if(arr[i] > 0) {
+            st.push_back(arr[i]);
+        }
+        else {
+
+            // Remove all smaller positive asteroids
+            while(!st.empty() &&
+                  st.back() > 0 &&
+                  st.back() < abs(arr[i])) {
+
+                st.pop_back();
             }
+
+            // Equal size => both destroyed
+            if(!st.empty() &&
+               st.back() == abs(arr[i])) {
+
+                st.pop_back();
+            }
+
+            // No collision possible
+            else if(st.empty() ||
+                    st.back() < 0) {
+
+                st.push_back(arr[i]);
+            }
+
+            // If st.back() > abs(arr[i])
+            // current negative asteroid gets destroyed
         }
-
-        std::vector<int> res(stack.size());
-        int i = stack.size() - 1;
-
-        while (!stack.empty()) {
-            res[i--] = stack.top();
-            stack.pop();
-        }
-
-        return res;        
     }
+
+    return st;
+}
 };
