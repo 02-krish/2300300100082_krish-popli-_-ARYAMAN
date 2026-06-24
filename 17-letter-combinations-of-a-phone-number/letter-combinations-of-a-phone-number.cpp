@@ -1,8 +1,8 @@
-using uo = unordered_map<char, string>;
+ 
 class Solution {
 public:
-    vector<string> letterCombinations(string digits) {
-        uo maps = {
+    vector<string> letterCombinations(string digits) {unordered_map<char, string> uo;
+        uo   = {
             {'2', "abc"},
             {'3', "def"},
             {'4', "ghi"},
@@ -14,17 +14,17 @@ public:
         };
         string op;
         vector<string> res;
-        sol(res, op, maps, digits, 0);
+        sol(res, op, uo, digits, 0);
         return res;
     }
-    void sol(vector<string>& res, string& op, uo& maps, string digits, int i){
+    void sol(vector<string>& res, string& op, unordered_map<char, string> uo, string digits, int i){
         if (i == digits.size()){
             res.push_back(op);
             return;
         }
-        for (char c : maps[digits[i]]) {
+        for (char c : uo[digits[i]]) {
             op.push_back(c);
-            sol(res, op, maps, digits, i + 1);
+            sol(res, op, uo, digits, i + 1);
             op.pop_back(); // backtracking
         }
     }
