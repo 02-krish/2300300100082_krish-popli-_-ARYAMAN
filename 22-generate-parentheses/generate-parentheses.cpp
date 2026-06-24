@@ -7,7 +7,7 @@ public:
     }
 
 
-    void fnc(int open,int close,int n,string temp,vector<string>& res){
+    void fnc(int open,int close,int n,string temp,vector<string> &res){
         if(open==n&&close==n){
             res.push_back(temp);
             return;
