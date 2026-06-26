@@ -7,13 +7,14 @@ if(idx==n){
     res.push_back(dairy);
     return;
 }
-fnc(a,n,idx+1,dairy,sum,res,target);
+
 if(a[idx]+sum<=target){
     dairy.push_back(a[idx]);
     sum=sum+a[idx];
     fnc(a,n,idx,dairy,sum,res,target);
     dairy.pop_back();
     sum=sum-a[idx];}
+    fnc(a,n,idx+1,dairy,sum,res,target);
     return;
 }
 
