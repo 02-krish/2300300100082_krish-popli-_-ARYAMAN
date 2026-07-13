@@ -19,12 +19,10 @@ public:
             reverse(word.begin(), word.end());
 
             if (word.length() > 0) {
-                if (!ans.empty())
-                    ans += " ";
-                ans += word;
+                ans += " " + word;
             }
         }
 
-        return ans;
+        return ans.substr(1);
     }
 };
