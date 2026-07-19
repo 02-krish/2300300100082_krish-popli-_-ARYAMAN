@@ -8,9 +8,11 @@ public:
            while(bucket.size()>2){
             bucket[fruits[start]]--;
             if( bucket[fruits[start]]==0){
+                
                  bucket.erase(fruits[start]);
             }
             start++;
+            break;
            }
            maxx=max(maxx,end-start+1);
             
