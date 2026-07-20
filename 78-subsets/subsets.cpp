@@ -1,18 +1,25 @@
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> result;
-        vector<int> path;
-        backtrack(nums, 0, path, result);
-        return result;
+        vector<vector<int>> res;
+        vector<int> temp;
+        int n=nums.size();
+        
+        fnc(res,nums,temp,n,0);
+        return res;
     }
-    
-    void backtrack(vector<int>& nums, int start, vector<int>& path, vector<vector<int>>& result) {
-        result.push_back(path);
-        for (int i = start; i < nums.size(); i++) {
-            path.push_back(nums[i]);
-            backtrack(nums, i + 1, path, result);
-            path.pop_back();
-        }
-    }
+
+void fnc( vector<vector<int>>& res,vector<int>& nums,vector<int>& temp,int n,int index   ){ 
+if(index==n){
+    res.push_back(temp);
+    return;
+}
+if(index<n){ 
+temp.push_back(nums[index]);
+fnc(res,nums,temp,n,index+1);
+temp.pop_back();
+fnc(res,nums,temp,n,index+1);
+return;}
+return ;
+}
 };
