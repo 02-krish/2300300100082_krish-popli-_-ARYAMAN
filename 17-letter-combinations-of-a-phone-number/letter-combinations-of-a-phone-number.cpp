@@ -12,7 +12,7 @@ public:
             {'8', "tuv"},
             {'9', "wxyz"}
         };
-        string op;
+        string op="";
         vector<string> res;
         sol(res, op, uo, digits, 0);
         return res;
