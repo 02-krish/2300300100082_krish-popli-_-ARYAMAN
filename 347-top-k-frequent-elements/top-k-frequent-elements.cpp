@@ -13,7 +13,7 @@ public:
                        vector<pair<int, int>>,
                        greater<pair<int, int>>> pq;
 
-        for (auto i : mp) {
+        for (pair<int, int> i : mp) {
 
             int element = i.first;
             int freq = i.second;
