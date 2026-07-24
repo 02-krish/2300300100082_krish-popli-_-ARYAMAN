@@ -3,7 +3,8 @@ public:
 
     vector<vector<int>> dp;
 
-    bool solve(string &s, int i, int j) {
+    bool solve(string &s, int i, int j,
+    vector<vector<int>> &dp) {
 
         if (i >= j)
             return true;
@@ -14,7 +15,7 @@ public:
         if (s[i] != s[j])
             return dp[i][j] = false;
 
-        return dp[i][j] = solve(s, i + 1, j - 1);
+        return dp[i][j] = solve(s, i + 1, j - 1,dp);
     }
 
     string longestPalindrome(string s) {
@@ -30,7 +31,7 @@ public:
 
             for (int j = i; j < n; j++) {
 
-                if (solve(s, i, j)) {
+                if (solve(s, i, j,dp)) {
 
                     if (j - i + 1 > maxLen) {
                         maxLen = j - i + 1;
