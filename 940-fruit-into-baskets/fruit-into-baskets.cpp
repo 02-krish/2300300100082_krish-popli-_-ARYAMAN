@@ -12,7 +12,7 @@ public:
                  bucket.erase(fruits[start]);
             }
             start++;
-            break;
+           
            }
            maxx=max(maxx,end-start+1);
             
