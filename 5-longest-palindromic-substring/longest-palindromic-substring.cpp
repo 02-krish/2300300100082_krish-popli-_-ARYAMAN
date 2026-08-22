@@ -7,7 +7,7 @@ public:
     vector<vector<int>> &dp) {
 
         if (i >= j)
-            return true;
+            return dp[i][j]= true;
 
         if (dp[i][j] != -1)
             return dp[i][j];
